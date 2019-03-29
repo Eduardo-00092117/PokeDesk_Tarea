@@ -9,21 +9,40 @@
     android:orientation="vertical">
 
     <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:drawableBottom="@drawable/poke"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableBottom="@drawable/poke"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/size_large">
         <TextView
             android:id="@+id/tv_nombre_poke"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/size_medium"
+            android:textSize="20dp"
             android:textColor="@color/text_color_black"
             android:text="Nombre: "/>
+        <TextView
+            android:id="@+id/tv_peso_poke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/text_color_black"/>
+        <TextView
+            android:id="@+id/tv_altura_poke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/text_color_black"/>
+        <TextView
+            android:id="@+id/tv_experiencia_poke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/text_color_black"/>
     </LinearLayout>
 
 </LinearLayout>
