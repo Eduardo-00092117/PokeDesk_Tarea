@@ -33,10 +33,6 @@ public class MainActivity extends AppCompatActivity {
         recycler = findViewById(R.id.rv_pokemon);
         recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        findViewById(R.id.btn).setOnClickListener(v -> {
-            otraVentana();
-        });
-
         new FetchPokemonTask().execute("");
     }
 
@@ -70,11 +66,5 @@ public class MainActivity extends AppCompatActivity {
                 recycler.setAdapter(adapter);
             }
         }
-    }
-
-    public void otraVentana(){
-        Intent mIntent = new Intent(MainActivity.this, pokeInfo.class);
-        mIntent.putExtra("Hola", "Hala Juve :(");
-        startActivity(mIntent);
     }
 }

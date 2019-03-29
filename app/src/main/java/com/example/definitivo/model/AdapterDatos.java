@@ -62,6 +62,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             this.url.setText("URL " + url);
             mostrar.setOnClickListener(v -> {
                 Intent intent = new Intent(context, pokeInfo.class);
+                intent.putExtra("nombre", s);
                 context.startActivity(intent);
             });
         }
