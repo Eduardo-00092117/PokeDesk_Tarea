@@ -31,6 +31,8 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
     @Override
     public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pokemon, null, false);
+        //Con este codigo se configura que el recyclerView acepte parametros de matchParents
+        view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
         return new ViewHolderDatos(view);
     }
 
@@ -59,7 +61,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 
         public void asignarDatos(String s, String url) {
             this.dato.setText("Nombre: " + s);
-            this.url.setText("URL " + url);
+            this.url.setText("URL: " + url);
             mostrar.setOnClickListener(v -> {
                 Intent intent = new Intent(context, pokeInfo.class);
                 intent.putExtra("nombre", s);

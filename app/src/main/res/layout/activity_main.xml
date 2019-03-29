@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:padding="@dimen/size_medium"
+    tools:context=".MainActivity"
+    android:focusable="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
             android:layout_below="@id/tv_label_pokemon"
             android:layout_toLeftOf="@id/btn"
             android:layout_alignParentLeft="true"
-            android:drawablePadding="8dp"
+            android:drawablePadding="@dimen/size_low"
             android:hint="Type ID Number"
             android:inputType="number" />
 
@@ -34,6 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/et_id_pokemon"
             android:layout_alignParentRight="true"
+            android:background="@color/red_button"
+            android:textColor="@color/text_color_white_button"
             android:text="Search" />
 
 
