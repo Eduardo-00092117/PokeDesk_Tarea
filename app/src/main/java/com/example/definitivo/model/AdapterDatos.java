@@ -49,20 +49,17 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
         TextView dato, url;
-        Button mostrar;
+        Button mostrar, nombre;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            dato = itemView.findViewById(R.id.tv_dato);
-            mostrar = itemView.findViewById(R.id.btn_ver_pokemon);
-            url = itemView.findViewById(R.id.tv_url);
+            nombre = itemView.findViewById(R.id.btn_nombre);
             context = itemView.getContext();
         }
 
         public void asignarDatos(String s, String url) {
-            this.dato.setText("Nombre: " + s);
-            this.url.setText("URL: " + url);
-            mostrar.setOnClickListener(v -> {
+            nombre.setText(s);
+            nombre.setOnClickListener(v -> {
                 Intent intent = new Intent(context, pokeInfo.class);
                 intent.putExtra("nombre", s);
                 intent.putExtra("url", url);

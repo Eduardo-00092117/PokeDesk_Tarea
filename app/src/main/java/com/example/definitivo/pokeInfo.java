@@ -1,33 +1,20 @@
 package com.example.definitivo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.definitivo.data.pokeResultInfo;
-import com.example.definitivo.model.AdapterDatos;
 import com.example.definitivo.utilities.NetworkUtil;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.net.URL;
-import java.net.URLConnection;
 
 public class pokeInfo extends AppCompatActivity {
 
@@ -56,6 +43,19 @@ public class pokeInfo extends AppCompatActivity {
 
     public class FetchPokemonTask extends AsyncTask<String, Void, String> {
 
+        ProgressDialog pDialog;
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+
+            pDialog = new ProgressDialog(pokeInfo.this);
+            pDialog.setMessage("Cargando datos");
+            pDialog.setCancelable(true);
+            pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            pDialog.show();
+        }
+
         @Override
         protected String doInBackground(String... strings) {
             URL url = NetworkUtil.getURL(URL);
@@ -83,6 +83,7 @@ public class pokeInfo extends AppCompatActivity {
                 mAltura.setText("Altura: " + alto + " cm");
                 mPeso.setText("Peso: " + peso + " kg");
                 mExperiencia.setText("Experiencia base: " + base);
+                pDialog.dismiss();
             }
         }
     }

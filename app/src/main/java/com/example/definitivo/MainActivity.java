@@ -1,20 +1,16 @@
 package com.example.definitivo;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Button;
 
 import com.example.definitivo.data.pokeResultInfo;
 import com.example.definitivo.model.AdapterDatos;
 import com.example.definitivo.utilities.NetworkUtil;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -40,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
     public class FetchPokemonTask extends AsyncTask<String, Void, String> {
 
+        ProgressDialog pDialog;
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+
+            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog.setMessage("Cargando los pokemon");
+            pDialog.setCancelable(true);
+            pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            pDialog.show();
+        }
+
         @Override
         protected String doInBackground(String... strings) {
             URL url = NetworkUtil.buiURL("");
@@ -64,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             if(s != null){
                 AdapterDatos adapter = new AdapterDatos(listDatos, listUrl);
                 recycler.setAdapter(adapter);
+                pDialog.dismiss();
             }
         }
     }
