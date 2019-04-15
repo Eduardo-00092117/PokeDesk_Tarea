@@ -4,45 +4,227 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pokeInfo"
-    android:padding="@dimen/size_medium"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".pokeInfo">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableBottom="@drawable/poke"/>
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/size_large">
         <TextView
-            android:id="@+id/tv_nombre_poke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/text_color_black"
-            android:text="Nombre: "/>
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/size_medium"
+            android:textColor="@color/text_color_white_button"
+            android:drawableLeft="@drawable/share"/>
+
         <TextView
-            android:id="@+id/tv_peso_poke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/text_color_black"/>
+            android:id="@+id/tv_cerrar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/size_medium"
+            android:textColor="@color/text_color_white_button"
+            android:drawableLeft="@drawable/close"/>
+
         <TextView
-            android:id="@+id/tv_altura_poke"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="  PokeDesk"
+            android:textSize="22dp"
+            android:gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/title_poke"
+            android:textColor="@color/text_color_white_button"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/size_medium"
+        android:scrollbars="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/text_color_black"/>
-        <TextView
-            android:id="@+id/tv_experiencia_poke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/text_color_black"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pokeImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@drawable/poke"/>
+
+            <TextView
+                android:id="@+id/tv_touch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:text="Touch the image for the next"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/size_low">
+                <TextView
+                    android:id="@+id/tv_nombre_poke"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color_black"
+                    android:text=""/>
+                <TextView
+                    android:id="@+id/tv_peso_poke"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color_black"/>
+                <TextView
+                    android:id="@+id/tv_altura_poke"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color_black"/>
+                <TextView
+                    android:id="@+id/tv_experiencia_poke"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color_black"/>
+                <TextView
+                    android:id="@+id/tv_tipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color_black"/>
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="stats"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:layout_span="6"
+                        android:background="@color/color_mostaza_button"
+                        android:textColor="@color/text_color_white_button"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2E5026">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="SP"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="S-D"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="S-A"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="D"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="A"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="HP"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#851B1B">
+                    <TextView
+                        android:id="@+id/tv_sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/tv_s-d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/tv_s-a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/tv_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/tv_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/tv_hp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/size_medium"
+                        android:gravity="center"
+                        android:textColor="@color/text_color_white_button"
+                        android:text="0"/>
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
